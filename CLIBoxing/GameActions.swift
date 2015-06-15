@@ -11,8 +11,9 @@ import Foundation
 func input() -> String {
     var keyboard = NSFileHandle.fileHandleWithStandardInput()
     var inputData = keyboard.availableData
-    var test: String = " hello world   "
-    return NSString(data: inputData.trim(), encoding:NSUTF8StringEncoding)!
+    var stringData = NSString(data: inputData, encoding:NSUTF8StringEncoding)!
+    let trimmed = stringData.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    return trimmed
 }
 
 // This isn't how i want it to be yet..
