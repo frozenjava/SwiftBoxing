@@ -16,13 +16,22 @@ let _game_version = 1.0
 func main() {
     println("\(_game_name) -- Version: \(_game_version)")
 
-    print("Enter your name: ")
-    var playersName = input()
+    var playersName = input("Enter your name")
 
     let player = Boxer(name: playersName)
     let oppenent = Boxer(name: "Swift")
 
     println(player._boxer_name + " vs. " + oppenent._boxer_name)
+    
+    while player.getHealth() > 0 && oppenent.getHealth() > 0 {
+        // Its the players turn first
+        getPlayersMove(player, oppenent, player: true)
+        
+        // Now its the computers turn
+        getPlayersMove(oppenent, player, player: false)
+    }
+    
+    println("Game Over")
     
 }
 

@@ -19,7 +19,7 @@ class Boxer {
     let _boxer_moves:[Int:String] = [0:"Punch", 1:"Block", 2:"Stats"]
     
     // The health of the boxer
-    var _boxer_health: Int = 100
+    var _boxer_health: Int = 20
     
     // The strength of the boxer
     var _boxer_strength: Int = 10
@@ -30,7 +30,9 @@ class Boxer {
     // The amount of stamina that the boxer originaly had
     let _boxer_stamina_original: Int = 10
     
-    init(name:String, hea:Int = 100, str:Int = 10, stam:Int = 10) {
+    var _boxer_attempt_block: Bool = false
+    
+    init(name:String, hea:Int = 20, str:Int = 10, stam:Int = 10) {
         _boxer_name = name
         _boxer_health = hea
         _boxer_strength = str
@@ -56,6 +58,14 @@ class Boxer {
     
     func getStamina() -> Int {
         return _boxer_stamina
+    }
+    
+    func isLivin() -> Bool {
+        if _boxer_health > 0 {
+            return true
+        } else {
+            return false
+        }
     }
     
 }
